@@ -8,6 +8,7 @@ import {
   Printer,
   ShieldCheck,
 } from "lucide-react"
+import { Reveal, RevealItem, RevealList } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/section-heading"
 import { whatsappLink } from "@/config/site"
@@ -29,9 +30,9 @@ export function Hardware() {
       id="equipos"
       className="border-b border-border bg-muted/40 py-16 sm:py-24"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
+          <Reveal>
             <SectionHeading
               align="left"
               eyebrow="Equipos y hardware"
@@ -50,11 +51,14 @@ export function Hardware() {
                 Consultar equipos disponibles
               </a>
             </Button>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-2 gap-4">
+          <RevealList
+            stagger={0.06}
+            className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2"
+          >
             {equipment.map((item) => (
-              <div
+              <RevealItem
                 key={item.label}
                 className="flex flex-col items-start gap-3 rounded-xl border border-border bg-card p-5"
               >
@@ -62,18 +66,18 @@ export function Hardware() {
                   <item.icon className="size-5" />
                 </span>
                 <span className="text-sm font-medium">{item.label}</span>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealList>
         </div>
 
-        <div className="mt-10 flex items-start gap-3 rounded-xl border border-primary/40 bg-card p-5">
+        <Reveal className="mt-10 flex items-start gap-3 rounded-xl border border-primary/40 bg-card p-5">
           <ShieldCheck className="mt-0.5 size-5 shrink-0 text-gold-strong" />
           <p className="text-sm leading-relaxed text-muted-foreground">
             Todos los equipos incluyen asesoría de compra, configuración con tu
             sistema y garantía. Si algo falla, nos encargamos.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

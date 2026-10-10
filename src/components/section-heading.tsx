@@ -1,4 +1,5 @@
 import { cn } from "cn"
+import { Reveal } from "@/components/motion/reveal"
 
 type SectionHeadingProps = {
   eyebrow?: string
@@ -16,7 +17,7 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div
+    <Reveal
       className={cn(
         "flex max-w-2xl flex-col gap-3",
         align === "center" ? "mx-auto items-center text-center" : "items-start",
@@ -34,6 +35,6 @@ export function SectionHeading({
           {description}
         </p>
       ) : null}
-    </div>
+    </Reveal>
   )
 }

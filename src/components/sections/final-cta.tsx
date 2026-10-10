@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarCheck } from "lucide-react"
+import { Reveal, RevealItem, RevealList } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { site, whatsappLink } from "@/config/site"
 
@@ -15,8 +16,8 @@ const services = [
 export function FinalCta() {
   return (
     <section id="contacto" className="py-16 sm:py-24">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-primary/40 bg-card px-6 py-14 text-center sm:px-12">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <Reveal className="relative overflow-hidden rounded-3xl border border-primary/40 bg-card px-6 py-14 text-center sm:px-12">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10"
@@ -34,16 +35,19 @@ export function FinalCta() {
             sistema hecho a tu medida. Elige lo que te interesa y hablemos.
           </p>
 
-          <ul className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
+          <RevealList
+            stagger={0.05}
+            className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2"
+          >
             {services.map((service) => (
-              <li
+              <RevealItem
                 key={service}
                 className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium"
               >
                 {service}
-              </li>
+              </RevealItem>
             ))}
-          </ul>
+          </RevealList>
 
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" className="h-12 px-6 text-base">
@@ -72,7 +76,7 @@ export function FinalCta() {
               </a>
             </Button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -5,6 +5,7 @@ import {
   Rocket,
   Store,
 } from "lucide-react"
+import { RevealItem, RevealList } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 
 const steps = [
@@ -46,20 +47,27 @@ export function HowItWorks() {
       id="como-funciona"
       className="border-b border-border bg-muted/40 py-16 sm:py-24"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Cómo funciona"
           title="Un proceso simple, de principio a fin"
           description="Cinco pasos claros para llevar tu negocio del desorden a la automatización."
         />
 
-        <ol className="relative mx-auto mt-14 max-w-3xl">
+        <RevealList
+          ordered
+          stagger={0.12}
+          className="relative mx-auto mt-14 max-w-4xl"
+        >
           <span
             aria-hidden="true"
             className="absolute top-2 bottom-2 left-6 w-px bg-border sm:left-7"
           />
           {steps.map((step, index) => (
-            <li key={step.title} className="relative flex gap-5 pb-10 last:pb-0">
+            <RevealItem
+              key={step.title}
+              className="relative flex gap-5 pb-10 last:pb-0"
+            >
               <span className="relative z-10 inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-border bg-card text-gold-strong sm:size-14">
                 <step.icon className="size-5 sm:size-6" />
               </span>
@@ -74,9 +82,9 @@ export function HowItWorks() {
                   {step.description}
                 </p>
               </div>
-            </li>
+            </RevealItem>
           ))}
-        </ol>
+        </RevealList>
       </div>
     </section>
   )

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Reveal } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 
 const faqs = [
@@ -52,25 +53,27 @@ const faqs = [
 export function Faq() {
   return (
     <section id="faq" className="border-b border-border py-16 sm:py-24">
-      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Preguntas frecuentes"
           title="Resolvemos tus dudas"
           description="Lo que más nos preguntan antes de empezar un proyecto."
         />
 
-        <Accordion type="single" collapsible className="mt-12 w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={faq.question} value={`item-${index}`}>
-              <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <Reveal className="mt-12 w-full">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.question} value={`item-${index}`}>
+                <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
       </div>
     </section>
   )

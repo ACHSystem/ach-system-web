@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge"
+import { Reveal } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 
 const team = [
@@ -33,19 +34,17 @@ const team = [
 export function Team() {
   return (
     <section id="equipo" className="border-b border-border py-16 sm:py-24">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Quiénes te atienden"
           title="Personas reales detrás de tu sistema"
           description="Trabajarás directamente con los ingenieros que analizan y construyen tu proyecto. Sin intermediarios."
         />
 
-        <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
-          {team.map((person) => (
-            <article
-              key={person.name}
-              className="flex flex-col rounded-2xl border border-border bg-card p-8"
-            >
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
+          {team.map((person, index) => (
+            <Reveal key={person.name} delay={index * 0.12} className="h-full">
+              <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-8">
               <div className="flex items-center gap-4">
                 <span className="inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
                   {person.initials}
@@ -68,6 +67,7 @@ export function Team() {
                 ))}
               </div>
             </article>
+            </Reveal>
           ))}
         </div>
       </div>

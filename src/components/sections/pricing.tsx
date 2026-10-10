@@ -1,4 +1,5 @@
 import { ArrowRight, Check, TrendingUp } from "lucide-react"
+import { Reveal } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/section-heading"
 import { whatsappLink } from "@/config/site"
@@ -38,15 +39,15 @@ const priceFactors = [
 export function Pricing() {
   return (
     <section id="precios" className="border-b border-border py-16 sm:py-24">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Precios"
           title="Inversión clara, sin sorpresas"
           description="El costo de tu sistema depende del alcance del proyecto. Trabajamos con rangos para que sepas desde el inicio qué esperar."
         />
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-5">
-          <div className="rounded-2xl border border-primary/40 bg-card p-8 lg:col-span-2">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-5">
+          <Reveal className="rounded-2xl border border-primary/40 bg-card p-8 lg:col-span-2">
             <p className="text-sm font-medium text-muted-foreground">
               Rango general de desarrollo
             </p>
@@ -82,9 +83,12 @@ export function Pricing() {
                 <ArrowRight className="size-4" />
               </a>
             </Button>
-          </div>
+          </Reveal>
 
-          <div className="rounded-2xl border border-border bg-card p-8 lg:col-span-3">
+          <Reveal
+            delay={0.12}
+            className="rounded-2xl border border-border bg-card p-8 lg:col-span-3"
+          >
             <div className="flex items-center gap-2 text-gold-strong">
               <TrendingUp className="size-5" />
               <h3 className="text-lg font-semibold">
@@ -108,7 +112,7 @@ export function Pricing() {
               Si tu negocio necesita algo más grande, también podemos escalar el
               proyecto por fases para ajustarnos a tu presupuesto.
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

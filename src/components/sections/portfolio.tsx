@@ -1,5 +1,6 @@
 import { Clock, MapPin, Store, TrendingUp } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { Reveal } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 
 const cases = [
@@ -37,19 +38,17 @@ export function Portfolio() {
       id="casos"
       className="border-b border-border bg-muted/40 py-16 sm:py-24"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Casos y experiencia"
           title="Sistemas que ya están trabajando"
           description="Nuestro sistema de ventas está instalado y operando en negocios reales de San Francisco, Zulia, con resultados según los requerimientos de cada cliente."
         />
 
-        <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
-          {cases.map((item) => (
-            <article
-              key={item.client}
-              className="flex flex-col rounded-2xl border border-border bg-card p-8"
-            >
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
+          {cases.map((item, index) => (
+            <Reveal key={item.client} delay={index * 0.12} className="h-full">
+              <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-8">
               <div className="flex items-center justify-between gap-4">
                 <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent text-gold-strong">
                   <item.icon className="size-6" />
@@ -79,6 +78,7 @@ export function Portfolio() {
                 ))}
               </ul>
             </article>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react"
+import { RevealItem, RevealList } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 
 const profiles = [
@@ -15,16 +16,16 @@ const profiles = [
 export function ForWho() {
   return (
     <section id="para-ti" className="border-b border-border py-16 sm:py-24">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Para quién"
           title="Este servicio es para ti si…"
           description="Si te reconoces en alguna de estas situaciones, un sistema a medida puede transformar la manera en que opera tu negocio."
         />
 
-        <ul className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
+        <RevealList className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {profiles.map((item) => (
-            <li
+            <RevealItem
               key={item}
               className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/60"
             >
@@ -32,9 +33,9 @@ export function ForWho() {
               <span className="text-sm leading-relaxed text-foreground">
                 {item}
               </span>
-            </li>
+            </RevealItem>
           ))}
-        </ul>
+        </RevealList>
       </div>
     </section>
   )

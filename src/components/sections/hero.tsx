@@ -1,5 +1,6 @@
 import { ArrowRight, CalendarCheck, Check, MapPin } from "lucide-react"
 import logo from "@/assets/logo.png"
+import { Reveal } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { site, whatsappLink } from "@/config/site"
 
@@ -25,8 +26,8 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
-        <div className="flex flex-col items-start gap-6">
+      <div className="mx-auto grid w-full max-w-[1440px] items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+        <Reveal className="flex flex-col items-start gap-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
             <MapPin className="size-3.5 text-gold-strong" />
             {site.locations.join(" · ")} · {site.country}
@@ -74,9 +75,9 @@ export function Hero() {
           <p className="text-sm text-muted-foreground">
             Atención directa con los ingenieros que construyen tu sistema.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="relative">
+        <Reveal delay={0.15} className="relative">
           <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <img
@@ -107,7 +108,7 @@ export function Hero() {
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

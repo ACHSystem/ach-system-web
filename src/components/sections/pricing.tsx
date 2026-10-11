@@ -1,4 +1,8 @@
-import { ArrowRight, Check, TrendingUp } from "lucide-react"
+import {
+  TbArrowRight as ArrowRight,
+  TbCheck as Check,
+  TbTrendingUp as TrendingUp,
+} from "react-icons/tb"
 import { Reveal } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/section-heading"

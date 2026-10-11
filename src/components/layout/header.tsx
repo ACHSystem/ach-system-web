@@ -1,6 +1,13 @@
 import { useState } from "react"
-import { ArrowRight, Menu } from "lucide-react"
+import { TbArrowRight as ArrowRight, TbMenu2 as Menu, TbClock, TbMail, TbPhone } from "react-icons/tb"
 import logo from "@/assets/logo.png"
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TelegramIcon,
+  WhatsAppIcon,
+} from "@/components/brand-icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,12 +21,21 @@ import {
 import { site, whatsappLink } from "@/config/site"
 
 const navItems = [
-  { label: "Para quién", href: "#para-ti" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Nosotros", href: "#nosotros" },
   { label: "Cómo funciona", href: "#como-funciona" },
   { label: "Precios", href: "#precios" },
-  { label: "Equipo", href: "#equipo" },
+  { label: "Documentos", href: "#documentos" },
   { label: "Casos", href: "#casos" },
   { label: "FAQ", href: "#faq" },
+]
+
+const topSocial = [
+  { label: "WhatsApp", href: whatsappLink(), icon: WhatsAppIcon },
+  { label: "Instagram", href: site.social.instagram, icon: InstagramIcon },
+  { label: "Facebook", href: site.social.facebook, icon: FacebookIcon },
+  { label: "LinkedIn", href: site.social.linkedin, icon: LinkedInIcon },
+  { label: "Telegram", href: site.social.telegram, icon: TelegramIcon },
 ]
 
 export function Header() {
@@ -27,6 +43,46 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 backdrop-blur-md">
+      <div className="hidden border-b border-border/70 md:block">
+        <div className="mx-auto flex h-9 w-full max-w-[1440px] items-center justify-between gap-4 px-4 text-xs text-muted-foreground sm:px-6 lg:px-8">
+          <span className="inline-flex items-center gap-1.5">
+            <TbClock className="size-4 text-gold-strong" />
+            {site.contact.hours}
+          </span>
+          <div className="flex items-center gap-4">
+            <a
+              href={`mailto:${site.contact.email}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+            >
+              <TbMail className="size-4 text-gold-strong" />
+              {site.contact.email}
+            </a>
+            <a
+              href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+            >
+              <TbPhone className="size-4 text-gold-strong" />
+              {site.contact.phone}
+            </a>
+            <span className="flex items-center gap-1">
+              {topSocial.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="inline-flex size-6 items-center justify-center rounded-full transition-colors hover:text-gold-strong"
+                >
+                  <Icon className="size-4" />
+                </a>
+              ))}
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="#inicio"

@@ -1,4 +1,5 @@
 import {
+  FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
   TelegramIcon,
@@ -17,6 +18,11 @@ const socialLinks = [
     label: "Instagram",
     href: site.social.instagram,
     icon: InstagramIcon,
+  },
+  {
+    label: "Facebook",
+    href: site.social.facebook,
+    icon: FacebookIcon,
   },
   {
     label: "Telegram",
@@ -56,9 +62,7 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-semibold">Contacto</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>
-              {site.locations.join(" · ")}
-            </li>
+            <li>{site.address}</li>
             <li>{site.country}</li>
             <li>
               <a
@@ -68,6 +72,15 @@ export function Footer() {
                 {site.contact.email}
               </a>
             </li>
+            <li>
+              <a
+                href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
+                className="transition-colors hover:text-foreground"
+              >
+                {site.contact.phone}
+              </a>
+            </li>
+            <li>{site.contact.hours}</li>
           </ul>
         </div>
 

@@ -1,14 +1,19 @@
-import { ArrowRight, CalendarCheck, Check, MapPin } from "lucide-react"
+import {
+  TbArrowRight as ArrowRight,
+  TbCalendarCheck as CalendarCheck,
+  TbCheck as Check,
+  TbMapPin as MapPin,
+} from "react-icons/tb"
 import logo from "@/assets/logo.png"
 import { Reveal } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { site, whatsappLink } from "@/config/site"
 
 const outcomes = [
-  "Un diagnóstico gratuito de cómo trabajas hoy.",
-  "Una propuesta clara: alcance, tiempo y precio.",
-  "Un sistema hecho a la medida de tu negocio.",
-  "Capacitación y soporte para ti y tu equipo.",
+  "Visita técnica gratuita para diagnosticar tu negocio.",
+  "Sistemas adaptables a tu presupuesto y forma de trabajar.",
+  "Capacitación completa para ti y todo tu personal.",
+  "Garantía y acompañamiento tras la instalación.",
 ]
 
 export function Hero() {
@@ -34,14 +39,15 @@ export function Hero() {
           </span>
 
           <h1 className="text-4xl font-bold text-balance sm:text-5xl lg:text-6xl">
-            <span className="text-gold-strong">{site.name}</span> — software a
-            medida para tu PYME
+            <span className="text-gold-strong">{site.name}</span> — innovación
+            para la eficiencia
           </h1>
 
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
-            Desarrollamos sistemas personalizados que resuelven problemas
-            concretos de tu negocio: ventas, inventario, facturación, turnos y
-            reportes. Sin plantillas genéricas, sin complicaciones.
+            Diseñamos y desarrollamos sistemas de gestión a la medida que
+            automatizan y optimizan los procesos de tu negocio: ventas,
+            inventario, historias médicas, control de donativos y más. Software
+            intuitivo, seguro y adaptado a tus necesidades.
           </p>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">

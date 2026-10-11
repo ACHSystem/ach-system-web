@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cn } from "cn"
-import { ChevronDownIcon } from "lucide-react"
+import { TbChevronDown as ChevronDownIcon } from "react-icons/tb"
 import { Accordion as AccordionPrimitive } from "radix-ui"
 
 function Accordion({

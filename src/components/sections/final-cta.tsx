@@ -1,4 +1,7 @@
-import { ArrowRight, CalendarCheck } from "lucide-react"
+import {
+  TbArrowRight as ArrowRight,
+  TbCalendarCheck as CalendarCheck,
+} from "react-icons/tb"
 import { Reveal, RevealItem, RevealList } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { site, whatsappLink } from "@/config/site"

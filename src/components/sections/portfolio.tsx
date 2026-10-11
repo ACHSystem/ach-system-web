@@ -1,34 +1,57 @@
-import { Clock, MapPin, Store, TrendingUp } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import type { IconType } from "react-icons"
+import {
+  TbDeviceLaptop,
+  TbBuildingStore,
+  TbStethoscope,
+  TbRobot,
+  TbHeartHandshake,
+  TbChartHistogram,
+} from "react-icons/tb"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 
-const cases = [
+type Project = {
+  title: string
+  description: string
+  icon: IconType
+}
+
+const projects: Project[] = [
   {
-    client: "Inversiones Gustavo",
-    location: "San Francisco, Zulia",
-    tag: "Sistema base",
-    icon: Store,
+    icon: TbDeviceLaptop,
+    title: "Proyecto 1",
     description:
-      "Implementación del sistema de ventas base, adaptado a los requerimientos operativos del negocio. Hoy opera a diario dando los resultados esperados.",
-    highlights: [
-      "Registro de ventas y control de caja",
-      "Adaptado a su forma de trabajar",
-      "Operación diaria estable",
-    ],
+      "Portafolio detallado de este proyecto, con galerías, descripciones y resultados clave obtenidos durante su implementación.",
   },
   {
-    client: "Abastos Kairos",
-    location: "San Francisco, Zulia",
-    tag: "Versión 24h por turnos",
-    icon: Clock,
+    icon: TbBuildingStore,
+    title: "Proyecto 2",
     description:
-      "Versión ampliada del sistema de ventas, diseñada para operar 24 horas con separación por turnos y control de cierre independiente para cada uno.",
-    highlights: [
-      "Operación continua 24 horas",
-      "Control y cierre por turnos",
-      "Trazabilidad por usuario",
-    ],
+      "Una colección completa de trabajos relacionados, incluyendo el proceso de desarrollo y los entregables finales.",
+  },
+  {
+    icon: TbStethoscope,
+    title: "Proyecto 3",
+    description:
+      "Portafolio visual donde podrás revisar ejemplos, casos de éxito y el enfoque creativo aplicado en el sector salud.",
+  },
+  {
+    icon: TbChartHistogram,
+    title: "Proyecto 4",
+    description:
+      "Una sección dedicada con más información, imágenes y detalles técnicos de cada sistema desarrollado.",
+  },
+  {
+    icon: TbRobot,
+    title: "Proyecto 5",
+    description:
+      "Portafolio de este servicio con una vista organizada de trabajos anteriores y resultados medibles.",
+  },
+  {
+    icon: TbHeartHandshake,
+    title: "Proyecto 6",
+    description:
+      "Un portafolio independiente, ideal para presentar este tipo de trabajo y el alcance de nuestras soluciones.",
   },
 ]
 
@@ -40,44 +63,25 @@ export function Portfolio() {
     >
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Casos y experiencia"
-          title="Sistemas que ya están trabajando"
-          description="Nuestro sistema de ventas está instalado y operando en negocios reales de San Francisco, Zulia, con resultados según los requerimientos de cada cliente."
+          eyebrow="Portafolio 2026"
+          title="Explora nuestro portafolio interactivo"
+          description="Una muestra del trabajo que realizamos para negocios y organizaciones de distintos sectores."
         />
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
-          {cases.map((item, index) => (
-            <Reveal key={item.client} delay={index * 0.12} className="h-full">
-              <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-8">
-              <div className="flex items-center justify-between gap-4">
-                <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent text-gold-strong">
-                  <item.icon className="size-6" />
-                </span>
-                <Badge className="font-normal">{item.tag}</Badge>
-              </div>
-
-              <h3 className="mt-5 text-lg font-semibold">{item.client}</h3>
-              <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-                <MapPin className="size-3.5" />
-                {item.location}
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <Reveal
+              key={project.title}
+              delay={index * 0.08}
+              className="flex h-full flex-col rounded-2xl border border-border bg-card p-8"
+            >
+              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent text-gold-strong">
+                <project.icon className="size-6" />
+              </span>
+              <h3 className="mt-5 text-lg font-semibold">{project.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {project.description}
               </p>
-
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
-
-              <ul className="mt-5 flex flex-col gap-2 border-t border-border pt-5">
-                {item.highlights.map((highlight) => (
-                  <li
-                    key={highlight}
-                    className="flex items-center gap-2 text-sm"
-                  >
-                    <TrendingUp className="size-4 shrink-0 text-gold-strong" />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </article>
             </Reveal>
           ))}
         </div>

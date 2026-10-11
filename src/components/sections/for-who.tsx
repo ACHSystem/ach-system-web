@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react"
+import { TbCircleCheck as CheckCircle2 } from "react-icons/tb"
 import { RevealItem, RevealList } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 

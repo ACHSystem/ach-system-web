@@ -1,10 +1,10 @@
 import {
-  ClipboardList,
-  LifeBuoy,
-  MessageCircle,
-  Rocket,
-  Store,
-} from "lucide-react"
+  TbClipboardList as ClipboardList,
+  TbLifebuoy as LifeBuoy,
+  TbMessageCircle as MessageCircle,
+  TbRocket as Rocket,
+  TbBuildingStore as Store,
+} from "react-icons/tb"
 import { RevealItem, RevealList } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 

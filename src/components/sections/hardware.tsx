@@ -1,13 +1,13 @@
 import {
-  BatteryCharging,
-  Cpu,
-  HardDrive,
-  Keyboard,
-  Monitor,
-  Mouse,
-  Printer,
-  ShieldCheck,
-} from "lucide-react"
+  TbBatteryCharging as BatteryCharging,
+  TbCpu as Cpu,
+  TbDatabase as HardDrive,
+  TbKeyboard as Keyboard,
+  TbDeviceDesktop as Monitor,
+  TbMouse as Mouse,
+  TbPrinter as Printer,
+  TbShieldCheck as ShieldCheck,
+} from "react-icons/tb"
 import { Reveal, RevealItem, RevealList } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/section-heading"

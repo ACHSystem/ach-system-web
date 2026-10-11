@@ -1,38 +1,24 @@
+import { Navigate, Route, Routes } from "react-router-dom"
 import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float"
-import { About } from "@/components/sections/about"
-import { Contact } from "@/components/sections/contact"
-import { Documents } from "@/components/sections/documents"
-import { Faq } from "@/components/sections/faq"
-import { FinalCta } from "@/components/sections/final-cta"
-import { ForWho } from "@/components/sections/for-who"
-import { Hardware } from "@/components/sections/hardware"
-import { Hero } from "@/components/sections/hero"
-import { HowItWorks } from "@/components/sections/how-it-works"
-import { Portfolio } from "@/components/sections/portfolio"
-import { Pricing } from "@/components/sections/pricing"
-import { Services } from "@/components/sections/services"
-import { Team } from "@/components/sections/team"
+import { ScrollManager } from "@/components/scroll-to-hash"
+import { Home } from "@/pages/home"
+import { PortfolioPage } from "@/pages/portfolio"
+import { ProjectDetailPage } from "@/pages/project-detail"
 
 function App() {
   return (
     <div className="flex min-h-dvh flex-col bg-background text-foreground">
+      <ScrollManager />
       <Header />
       <main className="flex-1">
-        <Hero />
-        <Services />
-        <ForWho />
-        <HowItWorks />
-        <About />
-        <Team />
-        <Pricing />
-        <Documents />
-        <Hardware />
-        <Portfolio />
-        <Faq />
-        <Contact />
-        <FinalCta />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portafolio" element={<PortfolioPage />} />
+          <Route path="/portafolio/:slug" element={<ProjectDetailPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
       <WhatsAppFloat />

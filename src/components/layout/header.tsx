@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { TbArrowRight as ArrowRight, TbMenu2 as Menu, TbClock, TbMail, TbPhone } from "react-icons/tb"
 import logo from "@/assets/logo.png"
 import {
@@ -21,13 +22,13 @@ import {
 import { site, whatsappLink } from "@/config/site"
 
 const navItems = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Cómo funciona", href: "#como-funciona" },
-  { label: "Precios", href: "#precios" },
-  { label: "Documentos", href: "#documentos" },
-  { label: "Casos", href: "#casos" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Nosotros", href: "/#nosotros" },
+  { label: "Cómo funciona", href: "/#como-funciona" },
+  { label: "Precios", href: "/#precios" },
+  { label: "Documentos", href: "/#documentos" },
+  { label: "Portafolio", href: "/portafolio" },
+  { label: "FAQ", href: "/#faq" },
 ]
 
 const topSocial = [
@@ -84,8 +85,8 @@ export function Header() {
       </div>
 
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <a
-          href="#inicio"
+        <Link
+          to="/"
           className="flex items-center gap-2 rounded-md"
           aria-label={`${site.name} - inicio`}
         >
@@ -102,20 +103,20 @@ export function Header() {
               {site.tagline}
             </span>
           </span>
-        </a>
+        </Link>
 
         <nav
           aria-label="Navegación principal"
           className="hidden items-center gap-1 lg:flex"
         >
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -153,12 +154,12 @@ export function Header() {
               >
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.href}>
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="rounded-md px-3 py-2.5 text-base font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </SheetClose>
                 ))}
                 <SheetClose asChild>

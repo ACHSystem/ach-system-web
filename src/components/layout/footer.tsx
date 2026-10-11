@@ -5,6 +5,7 @@ import {
   TelegramIcon,
   WhatsAppIcon,
 } from "@/components/brand-icons"
+import { Link } from "react-router-dom"
 import logo from "@/assets/logo.png"
 import { site, whatsappLink } from "@/config/site"
 
@@ -57,6 +58,33 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {site.description}
           </p>
+
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <Link
+              to="/portafolio"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Portafolio
+            </Link>
+            <Link
+              to="/#servicios"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Servicios
+            </Link>
+            <Link
+              to="/#documentos"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Costos y servicios
+            </Link>
+            <Link
+              to="/#faq"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Preguntas frecuentes
+            </Link>
+          </div>
         </div>
 
         <div>

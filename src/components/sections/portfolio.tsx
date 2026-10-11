@@ -1,59 +1,9 @@
-import type { IconType } from "react-icons"
-import {
-  TbDeviceLaptop,
-  TbBuildingStore,
-  TbStethoscope,
-  TbRobot,
-  TbHeartHandshake,
-  TbChartHistogram,
-} from "react-icons/tb"
+import { Link } from "react-router-dom"
+import { TbArrowRight, TbMapPin } from "react-icons/tb"
 import { Reveal } from "@/components/motion/reveal"
+import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/section-heading"
-
-type Project = {
-  title: string
-  description: string
-  icon: IconType
-}
-
-const projects: Project[] = [
-  {
-    icon: TbDeviceLaptop,
-    title: "Proyecto 1",
-    description:
-      "Portafolio detallado de este proyecto, con galerías, descripciones y resultados clave obtenidos durante su implementación.",
-  },
-  {
-    icon: TbBuildingStore,
-    title: "Proyecto 2",
-    description:
-      "Una colección completa de trabajos relacionados, incluyendo el proceso de desarrollo y los entregables finales.",
-  },
-  {
-    icon: TbStethoscope,
-    title: "Proyecto 3",
-    description:
-      "Portafolio visual donde podrás revisar ejemplos, casos de éxito y el enfoque creativo aplicado en el sector salud.",
-  },
-  {
-    icon: TbChartHistogram,
-    title: "Proyecto 4",
-    description:
-      "Una sección dedicada con más información, imágenes y detalles técnicos de cada sistema desarrollado.",
-  },
-  {
-    icon: TbRobot,
-    title: "Proyecto 5",
-    description:
-      "Portafolio de este servicio con una vista organizada de trabajos anteriores y resultados medibles.",
-  },
-  {
-    icon: TbHeartHandshake,
-    title: "Proyecto 6",
-    description:
-      "Un portafolio independiente, ideal para presentar este tipo de trabajo y el alcance de nuestras soluciones.",
-  },
-]
+import { projects } from "@/data/projects"
 
 export function Portfolio() {
   return (
@@ -64,27 +14,53 @@ export function Portfolio() {
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Portafolio 2026"
-          title="Explora nuestro portafolio interactivo"
-          description="Una muestra del trabajo que realizamos para negocios y organizaciones de distintos sectores."
+          title="Sistemas que ya están trabajando"
+          description="Nuestro sistema de ventas está instalado y operando en negocios reales de San Francisco, Zulia, con resultados según los requerimientos de cada cliente."
         />
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <Reveal
-              key={project.title}
-              delay={index * 0.08}
-              className="flex h-full flex-col rounded-2xl border border-border bg-card p-8"
-            >
-              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent text-gold-strong">
-                <project.icon className="size-6" />
-              </span>
-              <h3 className="mt-5 text-lg font-semibold">{project.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {project.description}
-              </p>
+            <Reveal key={project.slug} delay={index * 0.12} className="h-full">
+              <Link
+                to={`/portafolio/${project.slug}`}
+                className="group flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition-colors hover:border-primary/60"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent text-gold-strong">
+                    <project.icon className="size-6" />
+                  </span>
+                  <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium">
+                    {project.tag}
+                  </span>
+                </div>
+
+                <h3 className="mt-5 text-lg font-semibold">{project.client}</h3>
+                <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <TbMapPin className="size-3.5" />
+                  {project.location}
+                </p>
+
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {project.summary}
+                </p>
+
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold-strong">
+                  Ver caso completo
+                  <TbArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-10 flex justify-center">
+          <Button asChild size="lg" variant="outline" className="h-12 px-6 text-base">
+            <Link to="/portafolio">
+              Ver todo el portafolio
+              <TbArrowRight className="size-5" />
+            </Link>
+          </Button>
+        </Reveal>
       </div>
     </section>
   )
